@@ -9,13 +9,7 @@ export class FooterComponent implements OnInit {
 
   constructor() { }
 
-  pageRequested = 1;
-
   ngOnInit(): void {
-  }
-
-  onPageChange(page) {
-    this.pageRequested = page;
   }
 
 }

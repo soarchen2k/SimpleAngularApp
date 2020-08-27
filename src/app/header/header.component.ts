@@ -9,6 +9,11 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  pageRequested = 1;
+
+  ngOnInit(): void {}
+
+  onPageChange(page) {
+    this.pageRequested = page;
   }
 }
