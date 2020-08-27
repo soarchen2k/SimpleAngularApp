@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SimpleAngularApp';
+
+  // tslint:disable-next-line:typedef
+  updateLastAccessed() {
+    console.log('Button was clicked on: ' + new Date());
+  }
 }
