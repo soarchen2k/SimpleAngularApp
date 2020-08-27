@@ -7,8 +7,14 @@
 
 
 <!--  首先在 header 的标签中声明一个 headerComponent 选择器，即代表选择了 headerComponent-->
+<!--<app-header #headerComponent></app-header>-->
+<!--<app-page1 [hidden] = "headerComponent.pageRequested !== 1"></app-page1>-->
+<!--<app-page2 [hidden] = "headerComponent.pageRequested !== 2"></app-page2>-->
+<!--<app-page3 [hidden] = "headerComponent.pageRequested !== 5"></app-page3>-->
+<!--<app-footer></app-footer>-->
+
 <app-header #headerComponent></app-header>
-<app-page1 [hidden] = "headerComponent.pageRequested !== 1"></app-page1>
-<app-page2 [hidden] = "headerComponent.pageRequested !== 2"></app-page2>
-<app-page3 [hidden] = "headerComponent.pageRequested !== 5"></app-page3>
+<app-page1 *ngIf="headerComponent.pageRequested === 1"></app-page1>
+<app-page2 *ngIf="headerComponent.pageRequested === 2"></app-page2>
+<app-page3 *ngIf="headerComponent.pageRequested === 5"></app-page3>
 <app-footer></app-footer>
