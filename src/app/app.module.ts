@@ -15,7 +15,8 @@ import { Page3Component } from './page3/page3.component';
     FooterComponent,
     Page1Component,
     Page2Component,
-    Page3Component
+    Page3Component,
+    Page1Component
   ],
   imports: [
     BrowserModule
