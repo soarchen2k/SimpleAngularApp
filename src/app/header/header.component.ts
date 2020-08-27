@@ -13,7 +13,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // tslint:disable-next-line:typedef
   onPageChange(page) {
     this.pageRequested = page;
+
+    // 记录 pageRequested 的历史，可以在浏览器的 console 中显示
+    console.log(this.pageRequested);
   }
 }
