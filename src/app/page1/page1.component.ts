@@ -17,6 +17,7 @@ export class Page1Component implements OnInit {
     }, 5000);
   }
 
+  // tslint:disable-next-line:typedef
   onButtonClick() {
     alert('Hello, today is: ' + new Date());
   }

@@ -1,6 +1,9 @@
 <div class="header">
 <!--  通过 (click)="onPageChange(1)" 绑定-->
+<!--  onPageChange(5) 中的参数 5，作为 Page 3 的标识，与 app.component.html 文件中的
+      [hidden] = "headerComponent.pageRequested !== 5" 参数 5 相呼应，两者一致即可
+      呼出相应的页面 -->
   <div class="link"><a (click)="onPageChange(1)">Page 1</a></div>
   <div class="link"><a (click)="onPageChange(2)">Page 2</a></div>
-  <div class="link"><a (click)="onPageChange(3)">Page 3</a></div>
+  <div class="link"><a (click)="onPageChange(5)">Page 3</a></div>
 </div>
