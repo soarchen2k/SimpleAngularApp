@@ -17,6 +17,6 @@
 <app-page1 *ngIf="headerComponent.pageRequested === 1"></app-page1>
 <app-page2 *ngIf="headerComponent.pageRequested === 2"></app-page2>
 <app-page3 *ngIf="headerComponent.pageRequested === 5"></app-page3>
-<app-footer></app-footer>
+<app-footer #footer></app-footer>
 <button (click)="updateLastAccessed()">Update Last Accessed</button>
 
