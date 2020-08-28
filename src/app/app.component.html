@@ -1,12 +1,14 @@
 <!--  在 header app组件中有创建本地事件，incrementHitCounter-->
 <!--  我们希望 onPageChangedEvent调用我们的本地incrementHitCounter方法，-->
 <!--  在我们的本地 incrementHitCounter 方法中，我们希望调用Page2组件上的 incrementHitCounter方法。-->
-<app-header (pageChangeEvent)="incrementHitCounter($event)" #headerComponent></app-header>
+
+<!--  不再需要 #headerComponent 的选择器  -->
+<app-header (pageChangeEvent)="incrementHitCounter($event)"></app-header>
 
 <!-- 暂时改回 [hidden] 标签-->
-<app-page1 [hidden] = "headerComponent.pageRequested !== 1"></app-page1>
-<app-page2 [hidden] = "headerComponent.pageRequested !== 2" #page2></app-page2>
-<app-page3 [hidden] = "headerComponent.pageRequested !== 5"></app-page3>
+<app-page1 [hidden] = "currentPage !== 1"></app-page1>
+<app-page2 [hidden] = "currentPage !== 2" #page2></app-page2>
+<app-page3 [hidden] = "currentPage !== 5"></app-page3>
 
 <!--  此处如果直接写入 [lastAccessed] = startTime 则无法被识别，
       需要在 footer component 中用 @Input decorator 来声明一个 bindable 变量-->

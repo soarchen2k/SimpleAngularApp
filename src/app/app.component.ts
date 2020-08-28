@@ -24,6 +24,9 @@ export class AppComponent implements OnInit {
   // 声明一个 string 类型的变量，在 TypeScript 中，用小写的 string 来声明字符串变量
   startTime: string;
 
+  // 创建一个变量来储存当前的页面
+  currentPage = 1;
+
   // tslint:disable-next-line:typedef
   updateLastAccessed() {
     console.log('The previous last accessed value was ' + this.footerComponent.lastAccessed);
@@ -41,6 +44,10 @@ export class AppComponent implements OnInit {
   // 在我们的本地 incrementHitCounter 方法中，我们希望调用Page2组件上的 incrementHitCounter方法。
   // tslint:disable-next-line:typedef
   incrementHitCounter(page) {
+    // 将当前的页面值，赋值给 currentPage
+    this.currentPage = page;
+
+    // 当页面为2的时候，执行 incrementHitCounter() 方法来执行计数操作
     if (page === 2) {
       this.page2Component.incrementHitCounter();
     }
