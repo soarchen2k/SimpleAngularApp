@@ -17,6 +17,8 @@
 <app-page1 *ngIf="headerComponent.pageRequested === 1"></app-page1>
 <app-page2 *ngIf="headerComponent.pageRequested === 2"></app-page2>
 <app-page3 *ngIf="headerComponent.pageRequested === 5"></app-page3>
-<app-footer #footer></app-footer>
+<!--  此处如果直接写入 [lastAccessed] = startTime 则无法被识别，
+      需要在 footer component 中用 @Input decorator 来声明一个 bindable 变量-->
+<app-footer #footer [lastAccessed] = startTime></app-footer>
 <button (click)="updateLastAccessed()">Update Last Accessed</button>
 
