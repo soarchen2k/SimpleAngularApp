@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Page2Component implements OnInit {
 
+  // 创建一个变量 hits 来记录被点击的次数
+  hits = 0;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  // 增量点击计数器
+  // tslint:disable-next-line:typedef
+  incrementHitCounter() {
+    this.hits++;
   }
 
 }
