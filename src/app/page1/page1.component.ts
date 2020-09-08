@@ -13,7 +13,7 @@ export class Page1Component implements OnInit {
   // Angular中依赖注入的工作方式是，我们不是在类级别声明对象，而是在构造函数的参数中声明。
   constructor(private dataService: DataService) {}
 
-
+  // 依赖注入成功后，可以在 ts 类中创建所需的方法来访问服务
   get bookQuantity(): number {
     return this.dataService.books.length;
   }
