@@ -11,6 +11,8 @@ export class Page1Component implements OnInit {
 
   pageName = 'Page 1';
   books: Array<Book>;
+  // tslint:disable-next-line:variable-name
+  private _bookWrittenByMatt: number;
 
   // Angular中依赖注入的工作方式是，我们不是在类级别声明对象，而是在构造函数的参数中声明。
   constructor(private dataService: DataService) {}
@@ -18,6 +20,11 @@ export class Page1Component implements OnInit {
   // 依赖注入成功后，可以在 ts 类中创建所需的方法来访问服务
   get bookQuantity(): number {
     return this.dataService.books.length;
+  }
+
+
+  get bookWrittenByMatt(): number {
+    return this.dataService.books.filter(it => it.author).length;
   }
 
   ngOnInit(): void {
@@ -29,6 +36,14 @@ export class Page1Component implements OnInit {
 
     // 依赖注入成功后，也可以声明一个变量，并给这个变量赋值为 Service 中的变量，然后在 HTML 中进行引用
     this.books = this.dataService.books;
+
+    // 两种方法取其一，推荐第二种
+    this._bookWrittenByMatt = this.books.filter(it => {
+      return it.author === 'Matt';
+    }).length;
+
+    // 两种方法取其一，推荐第二种
+    // this.bookWrittenByMatt = this.dataService.books.filter(it => it.author === 'Matt').length;
   }
 
   // tslint:disable-next-line:typedef
