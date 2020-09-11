@@ -21,6 +21,8 @@ export class Page1Component implements OnInit {
   }
 
   ngOnInit(): void {
+
+    // ngOnInit 方法中的语句在调用后都立即被执行，延迟5000毫秒仅仅表现为效果5秒钟后出现
     setTimeout(() => {
       this.pageName = 'First Page';
     }, 5000);
