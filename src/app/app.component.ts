@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
   incrementHitCounter(page) {
     // 将当前的页面值，赋值给 currentPage
     this.currentPage = page;
-
+    // test
     // 当页面为2的时候，执行 incrementHitCounter() 方法来执行计数操作
     if (page === 2) {
       this.page2Component.incrementHitCounter();
