@@ -1,14 +1,12 @@
-import { Injectable, EventEmitter } from '@angular/core';
-import {Book} from './Model/Book';
+import { EventEmitter, Injectable } from '@angular/core';
 import {Subscriber} from 'rxjs';
+import {Book} from '../Model/Book';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
   books: Array<Book>;
-
-
   bookAddedEvent1 = new EventEmitter();
   bookAddedEvent2 = new Subscriber();
 
@@ -17,7 +15,7 @@ export class DataService {
   }
 
   // tslint:disable-next-line:typedef
-  makeBooks() {
+  private makeBooks() {
     this.books = new Array<Book>();
 
     const book1 = new Book();

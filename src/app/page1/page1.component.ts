@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from '../data.service';
+import {DataService} from '../service/data.service';
+import {EncryptionServiceService} from '../service/encryption-service.service';
 
 @Component({
   selector: 'app-page1',
@@ -11,11 +12,21 @@ export class Page1Component implements OnInit {
   pageName = 'Page 1';
   // tslint:disable-next-line:variable-name
   bookWrittenByMatt: number;
+  // tslint:disable-next-line:variable-name
+  private _hashNumber: string;
 
   // Angular中依赖注入的工作方式是，我们不是在类级别声明对象，而是在构造函数的参数中声明。
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService,
+              private encryptionService: EncryptionServiceService) {
+  }
 
-  // 依赖注入成功后，可以在 ts 类中创建所需的方法来访问服务
+
+  get hashNumber(): string {
+    this._hashNumber = this.encryptionService.getHashFrom('Test');
+    return this._hashNumber;
+  }
+
+// 依赖注入成功后，可以在 ts 类中创建所需的方法来访问服务
   get bookQuantity(): number {
     return this.dataService.books.length;
   }
@@ -50,8 +61,8 @@ export class Page1Component implements OnInit {
         }
       },
       (error) => {
-
-      }
+        // TODO
+      },
     );
 
   }
